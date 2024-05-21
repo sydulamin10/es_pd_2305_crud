@@ -52,6 +52,3 @@ def update_data(request, id):
             return redirect('/')
     return render(request, 'update.html', locals())
 
-
-def new():
-    pass
