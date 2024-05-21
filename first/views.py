@@ -51,3 +51,7 @@ def update_data(request, id):
             massage = 'Data Updated'
             return redirect('/')
     return render(request, 'update.html', locals())
+
+
+def new():
+    pass
