@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <p>{{massage}}</p>
+    <h1>Add Data</h1>
+    <form method="GET">
+        <input type="text" placeholder="Search Something..." name="src">
+        <button type="submit">Submit</button>
+    </form>
+    <br><br><br>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="img">
+        <input type="text" placeholder="Name" name="Name">
+        <input type="number" placeholder="Age" name="Age">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul>
+        {% for i in all_data %}
+        <li>----------------------</li>
+
+        <img style="height:150px; width:150px; " src="{{i.image.url}}" alt="">
+        <li>name : {{i.name}}</li>
+        <p>age : {{i.age}}</p>
+
+
+        <a href="{% url 'delete_data' i.id %}"><button style="background-color:red;">Delete</button></a>
+        <a href="{% url 'update_data' i.id %}"><button style="background-color:Green;">Update</button></a>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
